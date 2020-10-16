@@ -1,28 +1,59 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <transition name="page" mode="out-in">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="stylus">
+body
+  overflow-x: hidden
+  width: 100vw
+*
+  font-family  'Open Sans', sans-serif
+  outline none
+  margin 0
+  padding 0
+  color #212529
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .h1 *, .h2 *, .h3 *, .h4 *, .h5 *, .h6 *, .font2, .font2 *
+  font-family: 'Lucida Calligraphy', 'Raleway', sans-serif;
+  margin-bottom 1rem
+h1, .h1, .h1 *
+  font-size: calc(4vw+50px)
+h2, .h2, .h2 *
+  font-size calc(1vw+20px)
+
+//links
+.link
+  display inline-block
+  width fit-content
+  position relative
+  cursor pointer
+  &::after
+    content: ''
+    height 2px
+    width 100%
+    max-width 0
+    position absolute
+    bottom 0
+    left 0
+    transition max-width 0.5s
+    background-color #212529
+  &:hover::after
+    max-width 100%
+//pagetransition
+.page-enter-active,
+.page-leave-active
+  transition: all 0.5s ease
+
+.page-enter,
+.page-leave-to
+  opacity 0
+  transform: translate(20px, 0)
 </style>
