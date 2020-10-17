@@ -14,6 +14,12 @@ const router = new VueRouter({
   routes
 })
 
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);//setup gsap
+
+
 new Vue({
   router,
   render: h => h(App),
