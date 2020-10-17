@@ -1,5 +1,6 @@
 <template>
   <div>
+    <load-screen/>
     <transition name="page" mode="out-in">
       <router-view></router-view>
     </transition>
@@ -7,7 +8,11 @@
 </template>
 
 <script>
+import LoadScreen from './components/LoadScreen.vue'
 export default {
+  components: {
+    LoadScreen
+  }
 }
 </script>
 
@@ -16,13 +21,15 @@ body
   overflow-x: hidden
   width: 100vw
 *
-  font-family  'Open Sans', sans-serif
+  font-family: 'Open Sans', sans-serif;
   outline none
   margin 0
   padding 0
   color #212529
+.headline
+  font-family: 'Great Vibes', cursive;
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .h1 *, .h2 *, .h3 *, .h4 *, .h5 *, .h6 *, .font2, .font2 *
-  font-family: 'Lucida Calligraphy', 'Raleway', sans-serif;
+  font-family: 'Raleway', sans-serif;
   margin-bottom 1rem
 h1, .h1, .h1 *
   font-size: calc(4vw+50px)

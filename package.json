@@ -1,6 +1,6 @@
 {
-  "name": "laweestbelle",
-  "version": "0.1.0",
+  "name": "Laweestbelle",
+  "version": "0.1.0-SNAPSHOT",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
