@@ -12,6 +12,7 @@
           Ich freu mich sehr auf Euch, Eure Vorstellungen und unser Kennenlernen!
         </p>
       </div>
+      <p class="centered">Eure – Juliane Kurze</p>
     </div>
   </div>
 </template>
@@ -24,15 +25,29 @@ export default {
 <style lang="stylus" scoped>
 .section
   margin-top 18vh
-.flex
-.img-self
-  display none
-  width 40vw
-  position absolute
+img
+  float right
+  width: 40%
+  min-width 300px
+  max-width 100%
+  margin-left: 30px
+  margin-bottom: 30px
+// .flex
+  // display flex
+  // flex-wrap wrap
+  // justify-content space-between
+  // align-items center
+  // & > *
+  //   width: 50%
+  //   min-width 300px
+  //   flex-grow 1
 .description
+  padding-right: 5%
   text-align justify
   span
     padding 1em 10%
     display block
     text-align center
+.centered
+  text-align center
 </style>

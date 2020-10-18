@@ -9,29 +9,33 @@
       <div class="welcome gsap">
         <h3>Herzlich Willkommen</h3>
         <p>Für Euch mache ich aus wundervollen Ereignissen unvergessliche, persönliche und besondere Momente – in Eurer individuellen Trauzeremonie oder Willkommensfeier/ Kindesweihe für Euer Baby.</p>
-        <p>Ich freue mich sehr, dass Ihr den Weg zu mir gefunden habt und bin gespannt, was genau Eure Vorstellungen, Wünsche und Sehnsüchte in Bezug auf Euren perfekten Moment sind.</p>
       </div>
       <div class="selection">
-        <div class="trauung">
+        <div class="trauung gsap">
           <h5 class="clean-font">Freie Trauung</h5>
           <p class="description">Ihr wollt ganz individuell und persönlich heiraten? Mit Euch gemeinsam gestalte ich Eure einzigartige Trau(m)-zeremonie ganz nach Euren Wünschen und Vorstellungen.</p>
-          <router-link class="button" to=""></router-link>
+          <router-link class="button" to="">Mehr..</router-link>
         </div>
-        <div class="kindesweihe">
+        <div class="kindesweihe gsap">
           <h5 class="clean-font">Baby-/Kindesweihe</h5>
           <p clas="description">Ihr möchtet Euren Neuankömmling im Kreise Eurer Liebsten in der Welt begrüßen? Heißt Euer Baby mit einer wundervollen Kindessegnung/ Willkommensfeier willkommen.</p>
-          <router-link class="button" to=""></router-link>
+          <router-link class="button" to="">Mehr..</router-link>
         </div>
-        <div class="kennlern">
+        <div class="kennlern gsap">
           <h5 class="clean-font">Kennlerngespräch</h5>
           <p class="description">Vereinbart noch heute Euren kostenfreien Beratungstermin und lasst uns gemeinsam Eure Trau(m)-zeremonie verwirklichen.</p>
-          <router-link class="button" to=""></router-link>
+          <router-link class="button" to="">Mehr..</router-link>
         </div>
       </div>
-      <div class="qoute-wrapper">
+    </div>
+    <div class="qoute section">
+      <div class="qoute-wrapper gsap">
         <p class="qoute">Man sieht nur mit dem Herzen gut. Das Wesentliche ist für die Augen unsichtbar.</p>
         <p class="source">Antoine de Saint-Exupéry</p>
       </div>
+    </div>
+    <div class="section section-bottom gsap">
+      <p>Ich freue mich sehr, dass Ihr den Weg zu mir gefunden habt und bin gespannt, was genau Eure Vorstellungen, Wünsche und Sehnsüchte in Bezug auf Euren perfekten Moment sind.</p>
     </div>
   </div>
 </template>
@@ -92,7 +96,7 @@ export default {
           trigger: ele,
           start: "top 80%",
           // markers: true,
-          toggleActions: "restart none none reverse"
+          toggleActions: "play none none none"
         },
         opacity: 0,
         y: -50,
@@ -135,13 +139,11 @@ export default {
   transform translate(0,-50%)
   height: 32vw
 .subtext
+  color white
   z-index 1
   position absolute
   bottom 25vh
   right 15vw
-.intro
-  height 1000vh
-
 //--------------------- welcome ----------------------
 .welcome
   margin-top 10vh
@@ -157,7 +159,19 @@ export default {
   flex-wrap wrap
   justify-content space-between
   margin -30px
-  margin-bottom 30vh
+  margin-bottom 5vh
+  .button
+    display block
+    width fit-content
+    margin 1em auto
+    margin-bottom 2em
+    border 1px solid white
+    padding 0.8em 1.2em
+    transition all 0.2s
+    &:hover
+      background: rgba(#fbc9e2,0.5)
+      padding: 0.8em 1.7em
+
   & > div
     position relative
     text-align justify
@@ -170,7 +184,7 @@ export default {
     margin 30px
     h5
       text-align center
-      margin 10%
+      margin 10% auto
     p
       margin 10%
     & > *
@@ -200,5 +214,20 @@ export default {
     background-image url('../assets/kindesweihe.jpeg')
   .kennlern
     background-image url('../assets/kindesweihe.jpeg')
-
+.qoute.section
+  position relative
+  background-color: #fbc9e2
+  &::after
+    content ''
+    z-index -1
+    display block
+    position absolute
+    width 100%
+    height 10em
+    left 0
+    top -10em
+    background-color #fbc9e2
+//------------------------------------------ bottom ----------------------
+.section-bottom
+  margin 15vh 0
 </style>

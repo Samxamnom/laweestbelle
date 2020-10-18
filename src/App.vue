@@ -30,6 +30,7 @@ body
   margin 0
   padding 0
   color #212529
+  line-height 150%
 .clean-font, .clean-font *
   font-family: 'Raleway', sans-serif;
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .h1 *, .h2 *, .h3 *, .h4 *, .h5 *, .h6 *, .font2, .font2 *, h1 *
@@ -59,20 +60,22 @@ a
   color inherit
   text-decoration: none
 .qoute-wrapper
-  margin 10vh 0
+  // margin 10vh 0
+  padding: 5em 0
   width 100%
   position relative
   &::after
     color rgba(black,0.1)
-    top 0
+    top 45%
     left 0
     position absolute
     content '"'
     font-size: 1000%
-    transform: translate(-50%, -30%)
+    transform: translate(-50%, 0%)
   .qoute
     font-size: 200%
   .source
+    margin 0
     float right
 
 .section
