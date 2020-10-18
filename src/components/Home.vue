@@ -6,7 +6,7 @@
       <h5 class="subtext clean-font">Gemeinsam ist das leben schöner</h5>
     </div>
     <div class="intro section">
-      <div class="welcome">
+      <div class="welcome gsap">
         <h3>Herzlich Willkommen</h3>
         <p>Für Euch mache ich aus wundervollen Ereignissen unvergessliche, persönliche und besondere Momente – in Eurer individuellen Trauzeremonie oder Willkommensfeier/ Kindesweihe für Euer Baby.</p>
         <p>Ich freue mich sehr, dass Ihr den Weg zu mir gefunden habt und bin gespannt, was genau Eure Vorstellungen, Wünsche und Sehnsüchte in Bezug auf Euren perfekten Moment sind.</p>
@@ -86,13 +86,18 @@ export default {
       x: 100,
       opacity: 0.5
     });
-    gsap.from('.welcome', {
-      scrollTrigger: {
-        start: "top center",
+    gsap.utils.toArray(".gsap").forEach((ele) => {
+      gsap.from(ele, {
+        scrollTrigger: {
+          trigger: ele,
+          start: "top 80%",
+          // markers: true,
+          toggleActions: "restart none none reverse"
+        },
+        opacity: 0,
+        y: -50,
         duration: 1
-      },
-      opacity: 0,
-      y: -50,
+      })
     })
   }
 }
@@ -112,10 +117,11 @@ export default {
     height 100%
     top 0
     left 0
-    background linear-gradient(rgba(black,0.2), rgba(white,0), rgba(white,1))
+    background linear-gradient(rgba(black,0.2) 0%, rgba(white,0.3) 80%, rgba(white,1) 100%)
 .headline
   z-index 1
-  color black
+  span
+    color white
   position absolute
   top 50vh
   font-size 18vw
