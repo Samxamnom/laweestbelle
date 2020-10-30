@@ -28,7 +28,7 @@
         </div>
       </div>
     </div>
-    <div class="qoute section">
+    <div class="section qoute-section">
       <div class="qoute-wrapper gsap">
         <p class="qoute">Man sieht nur mit dem Herzen gut. Das Wesentliche ist für die Augen unsichtbar.</p>
         <p class="source">Antoine de Saint-Exupéry</p>
@@ -43,11 +43,36 @@
 <script>
 import Logo from './Logo.vue'
 import gsap from "gsap";
+import ScrollTrigger from 'gsap/ScrollTrigger'
 export default {
   components: {
-    Logo
+    Logo,
   },
-  mounted(){
+  data() {
+    return {
+      scrolltrigger: null
+    }
+  },
+  destroyed(){
+    gsap.set("nav", {clearProps: true});
+    gsap.set("nav li ul", {clearProps: true});
+    this.scrolltrigger.kill(false)
+  },
+  mounted() {
+    var tl = gsap.timeline()
+    tl.from('nav', {
+      backgroundColor: 'transparent'
+    },0)
+    tl.from('nav li ul', {
+      backgroundColor: 'transparent'
+    },0)
+    this.scrolltrigger = ScrollTrigger.create({
+      animation: tl,
+      trigger: ".header",
+      start: "center top",
+      end: "bottom top",
+      scrub: true
+    });
     gsap.to('.header-la', {
       scrollTrigger: {
         trigger: ".header",
@@ -159,7 +184,6 @@ export default {
   flex-wrap wrap
   justify-content space-between
   margin -30px
-  margin-bottom 5vh
   .button
     display block
     width fit-content
@@ -214,7 +238,7 @@ export default {
     background-image url('../assets/kindesweihe.jpeg')
   .kennlern
     background-image url('../assets/kindesweihe.jpeg')
-.qoute.section
+.qoute-section
   position relative
   background-color: #fbc9e2
   &::after
@@ -227,6 +251,8 @@ export default {
     left 0
     top -10em
     background-color #fbc9e2
+  & *
+    color white
 //------------------------------------------ bottom ----------------------
 .section-bottom
   margin 15vh 0

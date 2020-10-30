@@ -4,7 +4,12 @@
       <img src="favicon-96x96.png" alt="Home">
     </router-link>
     <ul class="menu">
-      <li class="link clean-font"><router-link to="/Zeremonie">Eure Zeremonie</router-link></li>
+      <li class="link clean-font"><router-link to="/Zeremonie">Eure Zeremonie</router-link>
+        <ul>
+          <li class="link clean-font"><router-link to="/About">Freie Trauung</router-link></li>
+          <li class="link clean-font"><router-link to="/About">Baby-/ Kindesweihe</router-link></li>
+        </ul>
+      </li>
       <li class="link clean-font"><router-link to="/About">&Uuml;ber mich</router-link></li>
       <li class="link clean-font"><router-link to="/Kontakt">Kontakt</router-link></li>
     </ul>
@@ -12,48 +17,7 @@
 </template>
 
 <script>
-import gsap from 'gsap'
 export default {
-  data() {
-    return {
-      animations: []
-    }
-  },
-  watch: {
-    '$route': function(route){
-      // console.log('route changed to ')
-      // console.log(route.path)
-      if (route.path != '/')
-        for (var ani of this.animations) {
-          ani.progress(1)
-        }
-      else
-        for (ani of this.animations) {
-          ani.progress(0)
-        }
-    }
-  },
-  mounted() {
-    console.log('mounted')
-    this.animations.push(gsap.from('nav', {
-      scrollTrigger: {
-        trigger: ".header",
-        start: "center top",
-        end: "bottom top",
-        scrub: true,
-      },
-      backgroundColor: 'transparent'
-    }));
-    this.animations.push(gsap.from('nav a', {
-      scrollTrigger: {
-        trigger: '.header',
-        start: 'center top',
-        end: 'bottom top',
-        scrub: 0.2
-      },
-      color: 'white'
-    }))
-  }
 }
 </script>
 
@@ -72,8 +36,33 @@ nav
   img
     height 50px
     margin 10px 20px
-.menu
-  li
-    color black
-    margin 10px 5vw
+    transition all 0.2 ease
+    &:hover
+      animation heart-beat 1s
+@keyframes heart-beat
+  0%,20%
+    transform none
+  10%
+    transform scale(1.3)
+.menu li
+  position relative
+  color white
+  margin 10px 5vw
+  &::after
+    background white
+  ul
+    transition opacity 0.5s,transform 0.5s
+    padding: 1em 0
+    position absolute
+    list-style none
+    top 100%
+    left 50%
+    background #fbc9e2
+    transform translate(-50%, -10%)
+    pointer-events none
+    opacity 0
+  &:hover ul
+    pointer-events auto
+    opacity 1
+    transform translate(-50%, 0%)
 </style>

@@ -5,16 +5,19 @@
     <transition name="page" mode="out-in">
       <router-view></router-view>
     </transition>
+    <Footer/>
   </div>
 </template>
 
 <script>
 import LoadScreen from './components/LoadScreen.vue'
 import Menu from './components/Menu.vue'
+import Footer from './components/Footer.vue'
 export default {
   components: {
     LoadScreen,
-    Menu
+    Menu,
+    Footer
   }
 }
 </script>
@@ -23,6 +26,8 @@ export default {
 body
   overflow-x: hidden
   width: 100vw
+html, body
+  min-height: 100vh
 *
   box-sizing border-box
   font-family: 'Open Sans', sans-serif;
@@ -56,22 +61,25 @@ hr
   margin 0 10%
   border none
   border-top 0.5px solid black
+ul
+  list-style none
 a
   color inherit
   text-decoration: none
 .qoute-wrapper
   // margin 10vh 0
-  padding: 5em 0
+  padding-top: 5em
+  padding-bottom 8em
   width 100%
   position relative
   &::after
-    color rgba(black,0.1)
+    color rgba(white,0.3)
     top 45%
     left 0
     position absolute
     content '"'
     font-size: 1000%
-    transform: translate(-50%, 0%)
+    transform: translate(-50%, -50%)
   .qoute
     font-size: 200%
   .source
